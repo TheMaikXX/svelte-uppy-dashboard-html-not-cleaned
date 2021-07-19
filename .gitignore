@@ -1,0 +1,9 @@
+/node_modules/
+
+/.idea
+
+.DS_Store
+
+/public/admin-app/bundle.css
+/public/admin-app/bundle.js
+/public/admin-app/bundle.js.map
