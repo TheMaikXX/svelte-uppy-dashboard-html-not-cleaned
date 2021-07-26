@@ -19,13 +19,15 @@
 
 	endpoint || (() => {throw new Error("Endpoint prop of upload modal is required")})()
 
+	let open = false
+
 	const uppy = new Uppy({
 		restrictions: {
 			maxFileSize,
 			allowedFileTypes
 		}
 	})
-		.use(Dashboard)
+		// .use(Dashboard)
 		.use(XHRUpload, {
 			endpoint,
 			fieldName,
@@ -66,12 +68,15 @@
 	})
 
 	export function openModal() {
-		uppy.getPlugin("Dashboard").openModal()
+		// debugger
+		// uppy.getPlugin("Dashboard").openModal()
+		open = true
 	}
 
 	export function closeModal() {
-		uppy.getPlugin("Dashboard").closeModal()
+		// uppy.getPlugin("DashboardModal").closeModal()
+		open = false
 	}
 </script>
 
-<DashboardModal {uppy} />
+<DashboardModal {uppy} {open} />
